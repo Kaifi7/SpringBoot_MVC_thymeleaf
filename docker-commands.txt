@@ -1,0 +1,6 @@
+	1. mvn clean package -DskipTests
+	2. docker build -t spring_thymeleaf:1.4 .
+	3. docker run -d -it --name mysqlSpring_thymeleafC -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=springstudent" -e "MYSQL_USER=springstudent" -e "MYSQL_PASSWORD=springstudent" -e "MYSQL_DATABASE=employee_directory" mysql:5.7
+	4. docker run --name  Spring_thymeleafC --publish 8080:8080 --link mysqlSpring_thymeleafC:mysqlSpring_thymeleafC spring_thymeleaf:1.4  
+	5. winpty docker exec -it mysqlSpring_thymeleafC bash
+	6. mysql -uroot -p
